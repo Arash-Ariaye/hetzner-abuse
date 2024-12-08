@@ -69,6 +69,7 @@ check_firewall() {
     if ! sudo ufw status | grep -q "Status: active"; then
         echo -e "${Red}Firewall is not active. Enabling...${Plain}"
         sudo ufw enable
+        sudo ufw allow ssh
     else
         echo -e "${Green}Firewall is active.${Plain}"
     fi
