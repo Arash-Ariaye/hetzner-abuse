@@ -10,3 +10,7 @@ curl -o epf.sh -L https://raw.githubusercontent.com/Arash-Ariaye/hetzner-abuse/m
 ```bash
 sudo ./firewall-xui.sh
 ```
+### Support and Contributors
+- This porject sponsored by [irvm.org](https://irvm.org)
+- Telegram Group : [WebHosting GAP](https://t.me/WEBHGP)
+- IRVM Channel : [ایران وی ام | IRVM](https://t.me/irvm_org)
