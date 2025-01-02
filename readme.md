@@ -4,7 +4,7 @@ The solution to your problem is to use this script.
 ## Install
 copy and paste below command to your terminal.
 ```bash
-curl -o epf.sh -L https://raw.githubusercontent.com/Arash-Ariaye/hetzner-abuse/master/firewall-xui.bash && chmod +x firewall-xui.sh
+curl -o firewall-xui.sh -L https://raw.githubusercontent.com/Arash-Ariaye/hetzner-abuse/master/firewall-xui.bash && chmod +x firewall-xui.sh
 ```
 ### Run
 ```bash
