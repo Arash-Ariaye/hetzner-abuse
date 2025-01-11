@@ -10,7 +10,7 @@ Plain="\033[0m"
 check_ports() {
     while true; do
         # Check ports opened by x-ui
-        xui_ports=$(sudo lsof -i -P -n | grep x-ui | awk '{print $9}' | cut -d: -f2 | cut -d'>' -f1 | grep -Eo '^[0-9]+$')
+        xui_ports=$(sudo lsof -i -P -n -iTCP -sTCP:LISTEN | grep x-ui | awk '{print $9}' | cut -d: -f2 | cut -d'>' -f1 | grep -Eo '^[0-9]+$')
         for port in $xui_ports; do
             if ! sudo ufw status | grep -q "$port"; then
                 sudo ufw allow in "$port" &> /dev/null
@@ -19,7 +19,7 @@ check_ports() {
         done
 
         # Check ports opened by xray-linu
-        xray_ports=$(sudo lsof -i -P -n | grep xray-linu | awk '{print $9}' | cut -d: -f2 | cut -d'>' -f1 | grep -Eo '^[0-9]+$')
+        xray_ports=$(sudo lsof -i -P -n -iTCP -sTCP:LISTEN | grep xray-linu | awk '{print $9}' | cut -d: -f2 | cut -d'>' -f1 | grep -Eo '^[0-9]+$')
         for port in $xray_ports; do
             if ! sudo ufw status | grep -q "$port"; then
                 sudo ufw allow in "$port" &> /dev/null
