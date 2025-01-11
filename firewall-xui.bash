@@ -84,11 +84,11 @@ start_port_checking() {
     
     # Display ports opened by x-ui
     echo -e "${Blue}Ports opened by x-ui:${Plain}"
-    sudo lsof -i -P -n | grep x-ui | awk '{print $9}' | cut -d: -f2 | cut -d'>' -f1 | grep -Eo '^[0-9]+$'
+    sudo lsof -i -P -n -iTCP -sTCP:LISTEN | grep x-ui | awk '{print $9}' | cut -d: -f2 | cut -d'>' -f1 | grep -Eo '^[0-9]+$'
     
     # Display ports opened by xray-linu
     echo -e "${Blue}Ports opened by xray-linu:${Plain}"
-    sudo lsof -i -P -n | grep xray-linu | awk '{print $9}' | cut -d: -f2 | cut -d'>' -f1 | grep -Eo '^[0-9]+$'
+    sudo lsof -i -P -n -iTCP -sTCP:LISTEN | grep xray-linu | awk '{print $9}' | cut -d: -f2 | cut -d'>' -f1 | grep -Eo '^[0-9]+$'
     
     sleep 5
     
